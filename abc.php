@@ -33,10 +33,10 @@ if (sizeof($posted_data) > 4)
 		$bar_array[$i]["low"] = $posted_data[4+5*$i + 3];
 		$bar_array[$i]["close"] = $posted_data[4+5*$i + 4];
 		
-		$check_select = $conn->query("SELECT  id FROM timedata WHERE time = '" . $bar_array[$i]["time"] . "'");
+		$check_select = $conn->query("SELECT  id FROM timedata WHERE time = '" . mysql_real_escape_string($bar_array[$i]["time"]) . "'");
 		 if($check_select->num_rows == 0)
 		{
-			$sql2 = "Insert into timedata(time,open,high,low,close) VALUES ('".$bar_array[$i]["time"]."', '".$bar_array[$i]["open"]."','".$bar_array[$i]["high"]."','".$bar_array[$i] ["low"]."','".$bar_array[$i] ["close"]."')";
+			$sql2 = "Insert into timedata(time,open,high,low,close) VALUES ('".mysql_real_escape_string($bar_array[$i]["time"])."', '".mysql_real_escape_string($bar_array[$i]["open"])."','".mysql_real_escape_string($bar_array[$i]["high"])."','".mysql_real_escape_string($bar_array[$i] ["low"])."','".mysql_real_escape_string($bar_array[$i] ["close"])."')";
 			if($conn->query($sql2) === true)
 			{
 			echo "inserted";
