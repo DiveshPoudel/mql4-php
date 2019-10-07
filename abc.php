@@ -44,7 +44,7 @@ if (sizeof($posted_data) > 4)
 		}
 		else 
 		{
-			echo "Duplicate. skipping...";
+			echo "Duplicate. skipping....";
 		}
 	}
 }
