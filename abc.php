@@ -5,7 +5,7 @@ $rawdata = file_get_contents('php://input');
 
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = ""; #your password
 // Create connection
 $conn = new mysqli($servername, $username, $password, "ticks");
 // Check connection
